@@ -21,7 +21,7 @@
     "lucide-react": "^0.555.0",
     "mongoose": "^9.0.0",
     "multer": "^2.0.2",
-    "next": "16.0.3",
+    "next": "16.0.10",
     "next-auth": "^4.24.13",
     "react": "19.2.0",
     "react-cropper": "^2.3.3",
