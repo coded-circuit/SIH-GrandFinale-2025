@@ -15,8 +15,9 @@ export async function POST(request) {
     // Forward to your ML service
     const mlServiceFormData = new FormData();
     mlServiceFormData.append('image', new Blob([buffer]), file.name);
+    const YOUR_ML_SERVICE_ENDPOINT = process.env.YOUR_ML_SERVICE_ENDPOINT;
     
-    const mlResponse = await fetch('YOUR_ML_SERVICE_ENDPOINT', {
+    const mlResponse = await fetch(YOUR_ML_SERVICE_ENDPOINT, {
       method: 'POST',
       body: mlServiceFormData,
       headers: {

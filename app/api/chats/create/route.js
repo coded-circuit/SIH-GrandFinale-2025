@@ -21,7 +21,7 @@ export async function POST(request) {
         { status: 400 }
       );
     }
-    let userId = null;
+    let userId = session?.user?.id;
     if (!userId) {
       console.error('⚠️ Could not find user ID in session!');
       console.error('Available session keys:', Object.keys(session));
