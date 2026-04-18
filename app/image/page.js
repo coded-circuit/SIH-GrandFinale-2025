@@ -248,7 +248,7 @@ export default function ImagePage() {
           isImageUploaded: true, // Mark that image was uploaded
           routineId: null,
           responses: [],
-          metadata: {
+          metadata: { 
             uploadedAt: new Date().toISOString(),
             fileName: selectedImage.name,
             fileSize: selectedImage.size,

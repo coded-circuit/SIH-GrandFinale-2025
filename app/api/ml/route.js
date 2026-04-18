@@ -27,33 +27,39 @@ export async function POST(request) {
     });
     // FOR NOW: Just simulate ML processing
 await new Promise(resolve => setTimeout(resolve, 2000));
-// const mockResult = {
-//   analysis: {
-//     detectedObjects: [
-//       { class: 'building', confidence: 0.92, }
-//     ],
-//     summary: 'Detected features in the satellite imagery',
-//     processingTime: '2.1s'
-//   }
-// };
-
-return NextResponse.json({
-  success: true,
-  result: mlResponse,
-  message: 'Image analyzed successfully'
-});
+const mockResult = {
+  analysis: {
+    detectedObjects: [
+      { class: 'building', confidence: 0.92, }
+    ],
+    summary: 'Detected features in the satellite imagery',
+    processingTime: '2.1s'
+  }
+};
+ // 👉 TODO (IMPORTANT later):
+    // Save this in DB using chatId
+    // Example:
+    // await db.chat.update(chatId, { result: mockResult });
 
 
-    if (!mlResponse.ok) {
-      throw new Error(`ML service responded with status: ${mlResponse.status}`);
-    }
 
-    const mlResult = await mlResponse.json();
+// return NextResponse.json({
+//   success: true,
+//   result: mlResponse,
+//   message: 'Image analyzed successfully'
+// });
+
+
+    // if (!mlResponse.ok) {
+    //   throw new Error(`ML service responded with status: ${mlResponse.status}`);
+    // }
+
+    // const mlResult = await mlResponse.json();
 
     return NextResponse.json({
       success: true,
       chatId: chatId,
-      result: mlResult,
+      result: mockResult,
       message: 'Image analyzed successfully'
     });
 
